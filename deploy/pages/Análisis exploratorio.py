@@ -4,7 +4,7 @@ import pandas as pd
 from PIL import Image
 
 
-nombre_app = "DiabetiScan"
+nombre_app = "DiabeScan"
 st.set_page_config(page_title=f'{nombre_app}', page_icon="deploy/colibri_celeste.jpeg", layout='wide') #page_icon: puede ser un emoticon, una imagen..
 #st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
 

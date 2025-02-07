@@ -26,12 +26,12 @@ st.markdown("## Ingrese los datos del paciente:")
 #input features
 
 #Salud fisica
-Physical_health = st.slider("Durante el último mes, ¿por cuántos días considera que su salud no fue buena?", min_value=0, max_value=30, value=0, step=1)
+Physical_health = st.slider("Durante el último mes, ¿por cuántos días considera que su salud no fue buena?", min_value=0, max_value=30, value=10, step=1)
 
 
 # Input height and weight -> Needed for the BMI
-height = st.number_input("Ingrese la estatura del paciente en metros:", 1.50, 2.00, step=0.01)
-weight = st.number_input("Ingrese el peso del paciente en Kilogramos:", 1, 160, step=1)
+height = st.number_input("Ingrese la estatura del paciente en metros:", 1.50, 2.00, step=0.01,value=1.80)
+weight = st.number_input("Ingrese el peso del paciente en Kilogramos:", 1, 160, step=1, value=90)
 
 #Compute BMI
 BMI = round(weight/(height)**2)
@@ -39,20 +39,20 @@ BMI = round(weight/(height)**2)
 # Input age
 Age = st.radio("Seleccione el grupo de edad del paciente:",
                   [1,2,3,4,5,6,7,8,9,10,11,12,13],format_func=lambda x: age_dict.get(x),
-                  index=None
+                  index=5
                   )
 #st.write(Age)
 
 # Input age
 Income = st.radio("Seleccione el salario anual del paciente (en dólares):",
                   [1,2,3,4,5,6,7,8], format_func=lambda x: income_dict.get(x),
-                  index=None
+                  index=2
                   )
 
 # Input your general health
 General_health = st.radio("¿Cómo esta la salud general del paciente?",
                      [1,2,3,4,5], format_func=lambda x: general_health_dict.get(x),
-                     index=None
+                     index=3
 )
 
 # Input the binary features
@@ -88,7 +88,7 @@ else:
     predicted_class = diagnose_dict[prediction[0]]
     #Display the result
     if prediction == 0:
-        st.success(f"Yor are Non-diabetic")
+        st.success(f"No diabético")
     else:
-        st.error(f"You are Diabetic")
+        st.error(f"Diabético")
 

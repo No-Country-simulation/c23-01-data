@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-nombre_app = "DiabetiScan"
+nombre_app = "DiabeScan"
 
 st.set_page_config(page_title=f'{nombre_app}', page_icon="deploy/colibri_celeste.jpeg")
 
