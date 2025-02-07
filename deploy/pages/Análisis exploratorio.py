@@ -19,7 +19,8 @@ sex_dict = {0:'Female',1:'Male' }### Sex Dictionary
 general_health_dict = {1:'Excellent',2:'Very good',3:'Good',4:'Fair',5:'Poor'} ### General Health Dictionary
 age_dict = {1:'18-24', 2:'25-29', 3:'30-34', 4:'35-39', 5:'40-44', 6:'45-49', 7:'50-54', 8:'55-59', 9:'60-64', 10:'65-69', 11:'70-74', 12:'75-79', 13:'above 80'}
 education_dict = {1:"Kindergarten",2:"Elementary",3:"Some high school",4:"High school graduate",5:"Some college/tecnical school",6:"College graduate"} ### Education
-income_dict = {1:"0-10K",2:"10-15K",3:"15-20K",4:"20-25K",5:"25-30K",6:"30-35K",7:"35-50K",8:"50-75K"}
+income_dict = {1:"less than 10K",2:"10-15K",3:"15-20K",4:"20-25K",5:"25-35K",6:"35-50K",7:"50-75K",8:"75K or above"}
+
 
 
 
@@ -111,11 +112,11 @@ def main():
             color='Diabetes_status',
             x='Age',
             barmode='group',
-            color_discrete_map={'Non-diabetic': 'blue', 'Diabetic': 'red'},
+            color_discrete_map={'Non-diabetic': 'green', 'Diabetic': 'red'},
         )
         fig3.update_layout(xaxis_title="Diabetes status",
                            yaxis_title="Frequency [Count]", 
-                           showlegend = False,
+                            showlegend = False,
                             xaxis=dict(tickfont=dict(size=16)),  # X-axis tick font size
                             yaxis=dict(tickfont=dict(size=16)),  # Y-axis tick font size
                             xaxis_title_font_size=20,  # X-axis title font size
@@ -136,7 +137,7 @@ def main():
             y="BMI",
             x="Diabetes_status",
             color="Diabetes_status",
-            color_discrete_sequence=['blue', 'red'],
+            color_discrete_sequence=['green', 'red'],
             #box=True,      # Adds a box plot inside the violin
             #points="all"   # Shows all individual points
         ) 
@@ -158,7 +159,7 @@ def main():
             y="General_health",
             x="Diabetes_status",
             color="Diabetes_status",
-            color_discrete_sequence=['blue', 'red']
+            color_discrete_sequence=['green', 'red']
         )
         figb.update_yaxes(categoryorder='array', categoryarray= list(general_health_dict.values()))
         figb.update_layout(xaxis_title="Diabetes status", 
@@ -179,7 +180,7 @@ def main():
             y="Income",
             x="Diabetes_status",
             color="Diabetes_status",
-            color_discrete_sequence=['blue', 'red'],
+            color_discrete_sequence=['green', 'red'],
         )
         figc.update_yaxes(categoryorder='array', categoryarray= list(income_dict.values()))
         figc.update_layout(xaxis_title="Diabetes status", 

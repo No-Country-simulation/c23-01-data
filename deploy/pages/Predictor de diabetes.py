@@ -8,12 +8,12 @@ model = joblib.load("trained_model.pkl")
 
 ### Define dictionaries: they will be useful later (here in spanish)
 binary_dict = {0:'No',1:'Si'} ### Dictionary for binary variables
-diagnose_dict = {0:'Non-diabetic',1:'Pre-diabetic/Diabetic'} ### Dictionary for the diabetes_status
+diagnose_dict = {0:'Non-diabetic',1:'Diabetic'} ### Dictionary for the diabetes_status
 sex_dict = {0:'Female',1:'Male' }### Sex Dictionary
 general_health_dict = {1:'Excelente',2:'Muy buena',3:'Buena',4:'Regular',5:'Pobre'} ### General Health Dictionary
-age_dict = {1:'18-24', 2:'25-29', 3:'30-34', 4:'35-39', 5:'40-44', 6:'45-49', 7:'50-54', 8:'55-59', 9:'60-64', 10:'65-69', 11:'70-74', 12:'75-79', 13:'above 80'} ### Age dictionary
+age_dict = {1:'18-24', 2:'25-29', 3:'30-34', 4:'35-39', 5:'40-44', 6:'45-49', 7:'50-54', 8:'55-59', 9:'60-64', 10:'65-69', 11:'70-74', 12:'75-79', 13:'80 o más'} ### Age dictionary
 #education_dict = {1:"Kindergarten",2:"Elementary",3:"Some high school",4:"High school graduate",5:"Some college/tecnical school",6:"College graduate"} ### Education
-income_dict = {1:"0-10K",2:"10-15K",3:"15-20K",4:"20-25K",5:"25-30K",6:"30-35K",7:"35-50K",8:"50-75K"}
+income_dict = {1:"menos de 10K",2:"10-15K",3:"15-20K",4:"20-25K",5:"25-35K",6:"35-50K",7:"50-75K",8:"75K o más"}
 
 
 nombre_app = "DiabetiScan"
