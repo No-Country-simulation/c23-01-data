@@ -25,6 +25,10 @@ st.markdown("## Ingrese los datos del paciente:")
 
 #input features
 
+#Salud fisica
+Physical_health = st.slider("Durante el último mes, ¿por cuántos días considera que su salud no fue buena?", min_value=0, max_value=30, value=0, step=1)
+
+
 # Input height and weight -> Needed for the BMI
 height = st.number_input("Ingrese la estatura del paciente en metros:", 1.50, 2.00, step=0.01)
 weight = st.number_input("Ingrese el peso del paciente en Kilogramos:", 1, 160, step=1)
@@ -72,8 +76,6 @@ Difficulty_walking = st.radio("¿tiene dificultades para caminar?",
                      [0,1], format_func=lambda x: binary_dict.get(x),
                      index=None
 )
-
-Physical_health = st.slider("Durante el último mes, ¿por cuántos días considera que su salud no fue buena?", min_value=0, max_value=30, value=0, step=1)
 
 input_data = np.array([High_BP,High_Chol,BMI,Heart_condition,General_health,Physical_health,Difficulty_walking,Age,Income])
 
