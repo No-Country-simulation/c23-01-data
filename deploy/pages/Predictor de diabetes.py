@@ -15,9 +15,13 @@ age_dict = {1:'18-24', 2:'25-29', 3:'30-34', 4:'35-39', 5:'40-44', 6:'45-49', 7:
 #education_dict = {1:"Kindergarten",2:"Elementary",3:"Some high school",4:"High school graduate",5:"Some college/tecnical school",6:"College graduate"} ### Education
 income_dict = {1:"0-10K",2:"10-15K",3:"15-20K",4:"20-25K",5:"25-30K",6:"30-35K",7:"35-50K",8:"50-75K"}
 
+
+nombre_app = "DiabetiScan"
+st.set_page_config(page_title=f'{nombre_app}', page_icon="deploy/colibri_celeste.jpeg")
+
 st.title("Predictor de diabetes")
 
-st.markdown("## Ingrese los datos del paciente para determinar si es diabetico o no:")
+st.markdown("## Ingrese los datos del paciente:")
 
 #input features
 

@@ -1,9 +1,11 @@
 import streamlit as st
 import plotly.express as px
 import pandas as pd
+from PIL import Image
 
 
-st.set_page_config(page_title='Nombre de nuestra app', page_icon="blue_heart", layout='wide') #page_icon: puede ser un emoticon, una imagen..
+nombre_app = "DiabetiScan"
+st.set_page_config(page_title=f'{nombre_app}', page_icon="deploy/colibri_celeste.jpeg", layout='wide') #page_icon: puede ser un emoticon, una imagen..
 #st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
 
 df = pd.read_csv('Data/diabetes_renamed.csv')
@@ -22,9 +24,32 @@ income_dict = {1:"0-10K",2:"10-15K",3:"15-20K",4:"20-25K",5:"25-30K",6:"30-35K",
 
 
 def main():
-    st.markdown("<h1 style='text-align: center'> Nombre de nuestra app </h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align: center'>{nombre_app} </h1>", unsafe_allow_html=True)
 
-    st.markdown("## Datos: encuestas de la CDC del año 2015")
+    st.markdown("## Diabetes: ultimo reporte de la Federación Internacional de diabetes (2021)")
+
+    colI, colII = st.columns(2)
+
+    with colI:
+        st.markdown("### Números clave:") 
+        st.markdown("###  ") 
+        st.markdown("""
+        <ul>
+            <li style='font-size:23px;'> 1 de cada 10 habitantes en el mundo padece de diabetes </li>
+            <li style='font-size:23px;'> Casi la mitad no sabe que padece diabetes </li>
+            <li style='font-size:23px;'> 90 % de las personas con diabetes tienen diabetes tipo 2 </li>
+            <li style='font-size:23px;'> Proyección 2045: 1 de cada 8 personas tendrá diabetes </li>
+        </ul>
+        """, unsafe_allow_html=True)
+
+    with colII: 
+        st.markdown("### Una visión global:")  
+        img = Image.open("deploy/IDF_map.webp")
+        st.image(img,use_container_width=True)
+        st.text("Fuente: Federación Internacional de diabetes")
+
+
+    st.markdown("## Nuestro estudio: encuestas de la CDC (Estados Unidos) del año 2015")
 
 
 
@@ -55,7 +80,9 @@ def main():
     #col3, col4 = st.columns(2)
 
     with col2:
-        st.markdown("### Distribución por sexo")
+        #st.markdown("### Distribución por sexo")
+        st.markdown(f"<h3 style='text-align: center'> Distribución por sexo </h3>", unsafe_allow_html=True)
+
         fig2 = px.histogram(
             df_cat,
             y='Diabetes_status',
@@ -76,7 +103,9 @@ def main():
         st.plotly_chart(fig2,use_container_width=True)
 
     with col3:
-        st.markdown("### Distribución etaria")
+        #st.markdown("### Distribución etaria")
+        st.markdown(f"<h3 style='text-align: center'> Distribución etaria </h3>", unsafe_allow_html=True)
+
         fig3 = px.histogram(
             df_cat,
             color='Diabetes_status',
@@ -99,7 +128,9 @@ def main():
     cola, colb, colc = st.columns(3)
 
     with cola:
-        st.markdown("## Distribución por Indice de masa corporal")   
+        #st.markdown("### Diabetes vs. IMC")   
+        st.markdown(f"<h3 style='text-align: center'> Diabetes vs. IMC </h3>", unsafe_allow_html=True)
+
         figa = px.box(
             df_cat,
             y="BMI",
@@ -120,7 +151,8 @@ def main():
         st.plotly_chart(figa,use_container_width=True) 
 
     with colb:
-        st.markdown("## Salud general")
+        #st.markdown("### Diabetes vs. Salud general")
+        st.markdown(f"<h3 style='text-align: center'> Diabetes vs. Salud general </h3>", unsafe_allow_html=True)
         figb = px.violin(
             df_cat,
             y="General_health",
@@ -140,7 +172,8 @@ def main():
         st.plotly_chart(figb,use_container_width=True)
 
     with colc:
-        st.markdown("## Distribución por ingresos")
+        #st.markdown("### Diabetes vs. Socioeconómico")
+        st.markdown(f"<h3 style='text-align: center'> Diabetes vs. Socioeconómico </h3>", unsafe_allow_html=True)
         figc = px.violin(
             df_cat,
             y="Income",
