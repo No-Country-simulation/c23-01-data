@@ -8,8 +8,8 @@ nombre_app = "DiabeScan"
 st.set_page_config(page_title=f'{nombre_app}', page_icon="deploy/colibri_celeste.jpeg", layout='wide') #page_icon: puede ser un emoticon, una imagen..
 #st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
 
-df = pd.read_csv('Data/diabetes_renamed.csv')
-df_cat = pd.read_csv('Data/diabetes_cat.csv')
+df = pd.read_csv('v2/Data/diabetes_renamed.csv')
+df_cat = pd.read_csv('v2/Data/diabetes_cat.csv')
 
 ### Define dictionaries: they will be useful later
 
@@ -45,7 +45,7 @@ def main():
 
     with colII: 
         st.markdown("### Una visión global:")  
-        img = Image.open("deploy/IDF_map.webp")
+        img = Image.open("v2/deploy/IDF_map.webp")
         st.image(img,use_container_width=True)
         st.text("Fuente: Federación Internacional de diabetes")
 

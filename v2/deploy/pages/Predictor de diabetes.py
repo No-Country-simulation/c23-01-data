@@ -8,7 +8,7 @@ sys.path.append('/Users/juanvguerrero/Documents/Data_Science/No_country/c23-01-d
 from functions  import my_scaler, evaluate_model
 
 #load trained model
-model = joblib.load("model_deploy.pkl")
+model = joblib.load("v2/model_deploy.pkl")
 
 ### Define dictionaries: they will be useful later (here in spanish)
 binary_dict = {0:'No',1:'Si'} ### Dictionary for binary variables
