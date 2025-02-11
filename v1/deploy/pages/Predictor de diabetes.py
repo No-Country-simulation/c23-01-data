@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 #load trained model
-model = joblib.load("trained_model.pkl")
+model = joblib.load("v1/trained_model.pkl")
 
 ### Define dictionaries: they will be useful later (here in spanish)
 binary_dict = {0:'No',1:'Si'} ### Dictionary for binary variables
@@ -17,7 +17,7 @@ income_dict = {1:"menos de 10K",2:"10-15K",3:"15-20K",4:"20-25K",5:"25-35K",6:"3
 
 
 nombre_app = "DiabetiScan"
-st.set_page_config(page_title=f'{nombre_app}', page_icon="deploy/colibri_celeste.jpeg")
+st.set_page_config(page_title=f'{nombre_app}', page_icon="v1/deploy/colibri_celeste.jpeg")
 
 st.title("Predictor de diabetes")
 
